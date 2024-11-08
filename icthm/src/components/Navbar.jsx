@@ -28,7 +28,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, Info, FileText } from "lucide-react"; // Correctly import Lucide React icons
 
 const ListItem = React.forwardRef(
   ({ className, title, children, ...props }, ref) => {
@@ -55,11 +55,14 @@ const ListItem = React.forwardRef(
 );
 ListItem.displayName = "ListItem";
 
-const MobileNavItem = ({ href, children, subItems }) => (
+const MobileNavItem = ({ href, children, subItems, icon: Icon }) => (
   <AccordionItem value={href}>
     {subItems ? (
       <>
-        <AccordionTrigger>{children}</AccordionTrigger>
+        <AccordionTrigger>
+          {Icon && <Icon className="mr-2 h-4 w-4 inline" />}
+          {children}
+        </AccordionTrigger>
         <AccordionContent>
           <ul className="ml-4 space-y-2">
             {subItems.map((item, index) => (
@@ -77,6 +80,7 @@ const MobileNavItem = ({ href, children, subItems }) => (
     ) : (
       <SheetClose asChild>
         <Link href={href} className="block py-2">
+          {Icon && <Icon className="mr-2 h-4 w-4 inline" />}
           {children}
         </Link>
       </SheetClose>
@@ -105,6 +109,7 @@ const MobileNav = () => (
               { href: "/about-conference", title: "About Conference" },
               { href: "/about-zep-research", title: "About Zep Research" },
             ]}
+            icon={Info}
           >
             ABOUT
           </MobileNavItem>
@@ -115,6 +120,7 @@ const MobileNav = () => (
               { href: "/papers-format", title: "Papers Format" },
               { href: "/mode-of-presentation", title: "Mode of Presentation" },
             ]}
+            icon={FileText}
           >
             CALL FOR PAPERS
           </MobileNavItem>
@@ -136,8 +142,8 @@ const MobileNav = () => (
 
 export default function Navbar() {
   return (
-    <div className="border-b ">
-      <div className="container mx-auto  flex h-16 items-center justify-between px-4">
+    <div className="border-b">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold">
             <Image src="./ictmh.svg" alt="logo" width={200} height={200} />
@@ -154,7 +160,10 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>ABOUT</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                  <Info className="mr-2 h-4 w-4 inline" />
+                  ABOUT
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <ListItem href="/about-conference" title="About Conference">
@@ -170,7 +179,10 @@ export default function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>CALL FOR PAPERS</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                  <FileText className="mr-2 h-4 w-4 inline" />
+                  CALL FOR PAPERS
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <ListItem href="/theme-and-topics" title="Theme and Topics">

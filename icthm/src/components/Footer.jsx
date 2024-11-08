@@ -19,7 +19,7 @@ export default function Footer() {
             {/* <h2 className="text-xl font-bold text-orange-600 mb-4">
               International Conference on Tourism Management and Hospitality
             </h2> */}
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-4  ml-4 mb-4">
               <a
                 href="#"
                 className="text-orange-600 hover:text-orange-500 transition-colors"
@@ -70,6 +70,14 @@ export default function Footer() {
                     About Zep Research
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/committee"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Committee
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="space-y-4">
@@ -108,6 +116,7 @@ export default function Footer() {
                 Quick Links
               </h3>
               <ul className="space-y-2">
+                <li></li>
                 <li>
                   <Link
                     href="/submission"

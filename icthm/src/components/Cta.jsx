@@ -1,6 +1,6 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Award, MapPin, Users } from "lucide-react";
+import { Award, MapPin, Users, Gem } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -24,7 +24,7 @@ const ctaItems = [
   {
     title: "Sponsorship",
     description: "Partner with us to showcase your brand",
-    icon: Users,
+    icon: Gem,
     link: "/sponsorship",
   },
   {
@@ -33,45 +33,95 @@ const ctaItems = [
     icon: MapPin,
     link: "/venue",
   },
+  {
+    title: "Committee",
+    description: "Meet our committee members and their expertise",
+    icon: Users,
+    link: "/committee",
+  },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export default function CTASection() {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+    tap: { scale: 0.95 },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
   return (
     <section className="py-16 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-yellow-900">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <motion.div
+            ref={ref}
             initial="hidden"
-            animate="visible"
-            variants={cardVariants}
-            transition={{ duration: 0.5 }}
+            animate={controls}
+            variants={containerVariants}
+            className="p-4"
           >
-            <Card className="h-full">
+            <Card className="overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm border-2 border-primary/20">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-primary">
+                <CardTitle className="text-3xl font-bold text-primary">
                   Celebrate & Support Tourism and Hospitality
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-lg mt-2">
                   Explore key aspects of our conference
                 </CardDescription>
               </CardHeader>
-              <CardContent className="grid gap-4">
+              <CardContent className="grid gap-4 sm:grid-cols-2">
                 {ctaItems.map((item, index) => (
-                  <motion.div
-                    key={item.title}
-                    variants={cardVariants}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Card>
-                      <CardContent className="flex items-center p-4">
-                        <item.icon className="h-8 w-8 text-primary mr-4" />
+                  <motion.div key={item.title} variants={itemVariants}>
+                    <Card className="h-full bg-white/50 hover:bg-white/80 transition-colors duration-300 border border-primary/10 hover:border-primary/30">
+                      <CardContent className="flex items-start p-4">
+                        <item.icon className="h-10 w-10 text-primary mr-4 mt-1" />
                         <div>
-                          <h3 className="font-semibold">{item.title}</h3>
+                          <h3 className="font-semibold text-lg mb-2">
+                            {item.title}
+                          </h3>
                           <p className="text-sm text-muted-foreground">
                             {item.description}
                           </p>
@@ -81,7 +131,7 @@ export default function CTASection() {
                         <Button
                           asChild
                           variant="outline"
-                          className="w-full border-orange-400 hover:bg-orange-50"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
                         >
                           <Link href={item.link}>Learn More</Link>
                         </Button>
@@ -94,46 +144,83 @@ export default function CTASection() {
           </motion.div>
 
           <motion.div
+            ref={ref}
             initial="hidden"
-            animate="visible"
+            animate={controls}
             variants={cardVariants}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            className="p-4"
           >
-            <Card className="h-full flex flex-col justify-between">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-primary">
+            <Card className="overflow-hidden bg-white backdrop-blur-sm border-2 border-primary/20">
+              <CardHeader className="relative pb-0">
+                <motion.div
+                  animate={isHovered ? "hover" : "initial"}
+                  variants={imageVariants}
+                >
+                  <Image
+                    src="https://illustrations.popsy.co/amber/man-on-a-bicycle.svg"
+                    alt="Conference Illustration"
+                    width={300}
+                    height={300}
+                    className="mx-auto"
+                  />
+                </motion.div>
+                <CardTitle className="text-3xl font-bold text-primary mt-4">
                   Register Now
                 </CardTitle>
-                <CardDescription className="text-base">
+                <CardDescription className="text-lg mt-2">
                   Secure your spot at the International Conference on Tourism
                   Management and Hospitality
                 </CardDescription>
-                <Image
-                  src="https://illustrations.popsy.co/amber/man-on-a-bicycle.svg"
-                  alt="Conference Illustration"
-                  width={200}
-                  height={200}
-                />
               </CardHeader>
-              <CardContent>
-                <p className="mb-4">
+              <CardContent className="mt-4">
+                <p className="mb-4 text-muted-foreground">
                   Join industry leaders, researchers, and professionals for an
                   enriching experience in the world of tourism and hospitality.
                 </p>
-                <ul className="list-disc list-inside mb-4 text-muted-foreground">
-                  <li>Engaging keynote speakers</li>
-                  <li>Interactive workshops</li>
-                  <li>Networking opportunities</li>
-                  <li>Latest industry insights</li>
+                <ul className="grid grid-cols-2 gap-2 mb-4">
+                  {[
+                    "Engaging keynote speakers",
+                    "Interactive workshops",
+                    "Networking opportunities",
+                    "Latest industry insights",
+                  ].map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center text-muted-foreground"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="w-5 h-5 mr-2 text-primary"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button
-                  asChild
-                  className="w-full bg-primary text-lg text-primary-foreground hover:bg-primary/90 py-6"
+                <motion.div
+                  className="w-full"
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
+                  onHoverStart={() => setIsHovered(true)}
+                  onHoverEnd={() => setIsHovered(false)}
                 >
-                  <Link href="/register">Register for the Conference</Link>
-                </Button>
+                  <Button
+                    asChild
+                    className="w-full bg-primary text-lg text-primary-foreground hover:bg-primary/90 py-6"
+                  >
+                    <Link href="/register">Register for the Conference</Link>
+                  </Button>
+                </motion.div>
               </CardFooter>
             </Card>
           </motion.div>
