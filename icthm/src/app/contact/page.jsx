@@ -51,9 +51,9 @@ export default function ContactUs() {
                 Get in Touch
               </h2>
               <p className="text-muted-foreground mb-4">
-                We'd love to hear from you. Whether you have a question about
-                our services, pricing, or anything else, our team is ready to
-                answer all your questions.
+                We love to hear from you. Whether you have a question about our
+                services, pricing, or anything else, our team is ready to answer
+                all your questions.
               </p>
               <div className="space-y-2">
                 <div className="flex items-center">
