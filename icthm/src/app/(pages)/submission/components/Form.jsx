@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Cloudinary } from "@cloudinary/url-gen";
-import { toast } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";/
+// import "@/styles/toast.css";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "react-toastify";
+import { useCustomToast } from "@/hooks/useCustomToast";
 
 const cld = new Cloudinary({
   cloud: {
@@ -28,6 +31,7 @@ const CLOUDINARY_UPLOAD_PRESET = "ml_default";
 const CLOUDINARY_CLOUD_NAME = "dwlhesiyi";
 
 export default function SubmitForm() {
+  const { showSuccessToast, showErrorToast } = useCustomToast();
   const [formData, setFormData] = useState({
     authorName: "",
     number: "",
@@ -75,10 +79,10 @@ export default function SubmitForm() {
         }
       );
       const data = await response.json();
-      console.log("Cloudinary response:", data);
+      // console.log("Cloudinary response:", data);
       return data.secure_url;
     } catch (error) {
-      console.error("Error uploading to Cloudinary:", error);
+      //  console.error("Error uploading to Cloudinary:", error);
       throw error;
     }
   };
@@ -88,7 +92,6 @@ export default function SubmitForm() {
     try {
       let pdfUrl = "";
       if (pdfFile) {
-        console.log("Uploading file:", pdfFile);
         pdfUrl = await uploadToCloudinary(pdfFile);
       }
 
@@ -96,8 +99,6 @@ export default function SubmitForm() {
         ...formData,
         pdfUrl: pdfUrl,
       };
-
-      console.log("Submitting data:", dataToSubmit);
 
       const response = await fetch("/api/paper-submission", {
         method: "POST",
@@ -108,12 +109,13 @@ export default function SubmitForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit paper");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit paper");
       }
 
       const result = await response.json();
-      console.log("Submission response:", result);
 
+      // Reset form
       setFormData({
         authorName: "",
         number: "",
@@ -131,11 +133,19 @@ export default function SubmitForm() {
       });
       setPdfFile(null);
 
-      toast.success("Paper submitted successfully!");
-      toast.success("Our coordinator will contact you within 24-48 hours");
+      // Custom styled toast notifications
+      showSuccessToast("Paper submitted successfully! 🎉");
+      showSuccessToast(
+        "Our coordinator will contact you within 24-48 hours 📧",
+        {
+          autoClose: 6000, // Stays a bit longer
+        }
+      );
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Error submitting form. Please try again.");
+      // console.error("Error submitting form:", error);
+      showErrorToast(
+        error.message || "Error submitting form. Please try again. ❌"
+      );
     }
   };
 

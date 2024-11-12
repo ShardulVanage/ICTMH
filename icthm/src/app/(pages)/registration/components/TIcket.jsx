@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Payment from "./Payment";
 
 export default function Ticket() {
   const tickets = [
@@ -88,6 +89,7 @@ export default function Ticket() {
                         {/* <div className="text-sm opacity-80">/{ticket.period}</div> */}
                       </div>
                       <Button className="w-full font-semibold">Book Now</Button>
+                      <Payment />
                     </div>
                   </div>
                 </div>

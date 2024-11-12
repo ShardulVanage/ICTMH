@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:w-2/3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:w-2/3">
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-orange-600">About</h3>
               <ul className="space-y-2">
@@ -59,7 +59,7 @@ export default function Footer() {
                     href="/about-conference"
                     className="hover:text-orange-500 transition-colors"
                   >
-                    About Conference
+                    Conference
                   </Link>
                 </li>
                 <li>
@@ -67,7 +67,7 @@ export default function Footer() {
                     href="/about-zep-research"
                     className="hover:text-orange-500 transition-colors"
                   >
-                    About Zep Research
+                    Zep Research
                   </Link>
                 </li>
                 <li>
@@ -76,6 +76,14 @@ export default function Footer() {
                     className="hover:text-orange-500 transition-colors"
                   >
                     Committee
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/sponsorship"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Sponsorship
                   </Link>
                 </li>
               </ul>
@@ -143,10 +151,49 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/awards"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Award
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/registration"
                     className="hover:text-orange-500 transition-colors"
                   >
                     Registration
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-orange-600">
+                Legal Links
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/Terms-and-Conditions"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/Cancellation-Policy"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Cancellation Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/Privacy-Policy"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Privacy Policy
                   </Link>
                 </li>
               </ul>

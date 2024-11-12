@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -14,7 +15,62 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
+import { toast } from "react-toastify";
+import { useCustomToast } from "@/hooks/useCustomToast";
 export default function ContactUs() {
+  const { showSuccessToast, showErrorToast } = useCustomToast();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      showSuccessToast("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        country: "",
+        message: "",
+      });
+    } catch (error) {
+      showErrorToast(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -97,7 +153,7 @@ export default function ContactUs() {
             <h2 className="text-2xl font-semibold text-primary mb-6">
               Send us a Message
             </h2>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -105,7 +161,13 @@ export default function ContactUs() {
                 >
                   Name
                 </label>
-                <Input id="name" placeholder="Your Name" />
+                <Input
+                  id="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div>
                 <label
@@ -114,25 +176,46 @@ export default function ContactUs() {
                 >
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="your@email.com" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="phone"
                   className="block text-sm font-medium text-muted-foreground mb-1"
                 >
-                  Phone.no
+                  Phone no.
                 </label>
-                <Input id="Phone" type="number" placeholder="91+ 8734628373" />
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="91+ 8734628373"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="country"
                   className="block text-sm font-medium text-muted-foreground mb-1"
                 >
                   Country
                 </label>
-                <Input id="Country" type="text" placeholder="India" />
+                <Input
+                  id="country"
+                  type="text"
+                  placeholder="India"
+                  value={formData.country}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div>
                 <label
@@ -145,10 +228,13 @@ export default function ContactUs() {
                   id="message"
                   placeholder="Your message here..."
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                 />
               </div>
-              <Button type="submit" className="w-full">
-                Send Message
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </motion.div>
