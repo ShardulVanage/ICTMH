@@ -52,7 +52,7 @@ export default function AwardsPage() {
         </div>
 
         <div className="bg-orange-500 rounded-lg shadow-xl p-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Don't Miss Your Chance to Win!</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Dont Miss Your Chance to Win!</h2>
           <p className="text-xl text-orange-100 mb-6">
             Register now for the International Conference on Tourism Management and Hospitality and showcase your research.
           </p>

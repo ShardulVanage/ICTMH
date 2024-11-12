@@ -59,9 +59,9 @@ export default function CancellationPolicy() {
             <p>To cancel your registration, please follow these steps:</p>
             <ol className="list-decimal list-inside mt-2 space-y-2 ">
               <li>Log in to your conference account</li>
-              <li>Navigate to "My Registrations"</li>
+              <li>Navigate to My Registrations</li>
               <li>Select the registration you wish to cancel</li>
-              <li>Click on the "Cancel Registration" button</li>
+              <li>Click on the Cancel Registration button</li>
               <li>Follow the prompts to complete the cancellation process</li>
             </ol>
           </CardContent>
@@ -81,7 +81,7 @@ export default function CancellationPolicy() {
           </CardHeader>
           <CardContent className="">
             <p>
-              If you have any questions about our cancellation policy or need assistance, please don't hesitate to contact our support team:
+              If you have any questions about our cancellation policy or need assistance, please dont hesitate to contact our support team:
             </p>
             <p className="mt-2">
               <strong>Email:</strong> support@tourismconference.com<br />

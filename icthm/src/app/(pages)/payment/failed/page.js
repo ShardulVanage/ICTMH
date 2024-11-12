@@ -46,7 +46,7 @@ export default function PaymentFailed() {
             Payment Failed
           </h1>
           <p className="text-gray-600 mb-6">
-            We're sorry, but your payment could not be processed. Please try again or contact support if the issue persists.
+            Were sorry, but your payment could not be processed. Please try again or contact support if the issue persists.
           </p>
           <div className="space-y-3">
             <button
