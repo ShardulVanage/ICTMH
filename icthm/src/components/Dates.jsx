@@ -12,7 +12,7 @@ const timeline = [
   {
     name: "Early bird registration deadline",
     description:
-      "Submit your research papers on sustainable development and green technologies.",
+      "Submit your research on sustainable development and green technologies to benefit from exclusive early rates.",
     date: "December 23rd",
     dateTime: "2024-12",
     icon: <Book className="h-6 w-6" />,
@@ -20,7 +20,7 @@ const timeline = [
   {
     name: "Abstract submission deadline",
     description:
-      "Register using our paperless system and receive a virtual conference kit.",
+      "Register through our seamless paperless system and receive a virtual conference kit to enhance your experience.",
     date: "January 9th",
     dateTime: "2025-01",
     icon: <Globe className="h-6 w-6" />,
@@ -28,15 +28,15 @@ const timeline = [
   {
     name: "Full paper submission Deadline",
     description:
-      "Selected papers will be featured in our special Green Innovation Showcase.",
+      "Top submissions will be featured in our Green Innovation Showcase, highlighting groundbreaking sustainability efforts.",
     date: "January 25th",
     dateTime: "2025-01",
     icon: <Lightbulb className="h-6 w-6" />,
   },
   {
-    name: "Registration Deadline",
+    name: "Final Registration Deadline",
     description:
-      "Join us for three days of insights on sustainable development and networking.",
+      "Don’t miss three days of networking, insightful discussions, and in-depth exploration of sustainable development practices.",
     date: "February 10th",
     dateTime: "2025-02",
     icon: <Users className="h-6 w-6" />,
@@ -92,11 +92,11 @@ export default function Dates() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-5xl">
-            Conference Important Dates
+            Key Dates to Remember
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Join us in our journey towards a greener future. Stay updated with
-            our eco-friendly conference schedule and important milestones.
+            Stay ahead of the curve.Mark these important dates and be part of a
+            transformative conference.
           </p>
         </div>
 

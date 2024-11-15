@@ -37,22 +37,22 @@ export default function ConferenceObjectives() {
     {
       title: "Knowledge Exchange",
       description:
-        "Facilitate the exchange of cutting-edge research and best practices in tourism management and hospitality.",
+        "The International Conference on Tourism Management and Hospitality (ICTMH) unites global leaders, researchers, and innovators to reimagine the future of tourism and hospitality, fostering sustainable growth, resilience, and transformative ideas for a dynamic, post-pandemic world.",
     },
     {
       title: "Networking",
       description:
-        "Create opportunities for professionals, researchers, and students to connect and collaborate.",
+        "Establish professional connections among professionals, researchers, and students, which will promote significant collaboration and partnerships across the industry.",
     },
     {
       title: "Innovation",
       description:
-        "Showcase innovative approaches and technologies shaping the future of the tourism and hospitality industry.",
+        "Highlight pioneering approaches and transformational technologies informing the future landscape of tourism and hospitality.",
     },
     {
       title: "Sustainability",
       description:
-        "Promote sustainable and responsible tourism practices to address global challenges.",
+        "Promote sustainable and responsible tourism practices that impinge upon global challenges while contributing to long-term resilience in the industry.",
     },
   ];
 

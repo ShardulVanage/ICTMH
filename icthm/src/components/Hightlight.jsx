@@ -16,24 +16,24 @@ import Image from "next/image";
 
 const highlights = [
   {
-    id: "sustainable-tourism",
+    id: "Sustainable Tourism Practices",
     title: "Sustainable Tourism Practices",
     description:
-      "Explore innovative approaches to sustainable tourism and their impact on local communities and environments.",
+      "Find out the best sustainable tourism practices for ecotourism to deliver a favorable impact on natural resources, the local community, and responsible travel.",
     image: "https://illustrations.popsy.co/amber/abstract-art-3.svg",
   },
   {
     id: "digital-hospitality",
     title: "Digital Transformation in Hospitality",
     description:
-      "Discover how technology is reshaping the hospitality industry and enhancing guest experiences.",
+      "Discover how technology is changing the domain of hospitality, leading towards better guest experience, efficiency, and innovation in hospitality management.",
     image: "https://illustrations.popsy.co/amber/abstract-art-5.svg",
   },
   {
     id: "cultural-tourism",
     title: "Cultural Tourism and Heritage Management",
     description:
-      "Learn about strategies for preserving cultural heritage while promoting tourism development.",
+      "Learn how cultural tourism can be used for heritage preservation to be appreciated by a developing culture.",
     image: "https://illustrations.popsy.co/amber/abstract-art-4.svg",
   },
 ];

@@ -30,8 +30,8 @@ export default function Hero() {
               <span className="block text-primary">
                 International Conference on
               </span>
-              <span className="block">Tourism Management</span>
-              <span className="block">and Hospitality</span>
+              <span className="block">Tourism Management </span>
+              <span className="block">& Hospitality</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -39,8 +39,8 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="mt-3 text-xl text-gray-600 sm:mt-5 sm:text-2xl max-w-prose"
             >
-              Join us for a transformative experience exploring the future of
-              tourism and hospitality in a post-pandemic world.
+              Join us to envision the future innovations in Tourism Management &
+              Hospitality in a post-pandemic world
             </motion.p>
           </div>
           <motion.div

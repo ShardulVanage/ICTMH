@@ -17,25 +17,29 @@ import Image from "next/image";
 const ctaItems = [
   {
     title: "Awards",
-    description: "Recognize excellence in tourism and hospitality",
+    description:
+      "Honor the pioneers and visionaries who are setting new standards in tourism and hospitality",
     icon: Award,
     link: "/awards",
   },
   {
     title: "Sponsorship",
-    description: "Partner with us to showcase your brand",
+    description:
+      "Elevate your brand by partnering with us and gaining global exposure in a key industry",
     icon: Gem,
     link: "/sponsorship",
   },
   {
     title: "Venue",
-    description: "Explore our world-class conference facilities",
+    description:
+      "Immerse yourself in our cutting-edge conference facilities, designed for innovation and impactful discussions",
     icon: MapPin,
     link: "/venue",
   },
   {
     title: "Committee",
-    description: "Meet our committee members and their expertise",
+    description:
+      "Meet the experts shaping the future of tourism and hospitality with their knowledge and leadership",
     icon: Users,
     link: "/committee",
   },
@@ -106,7 +110,7 @@ export default function CTASection() {
             <Card className="overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm border-2 border-primary/20">
               <CardHeader>
                 <CardTitle className="text-3xl font-bold text-primary">
-                  Celebrate & Support Tourism and Hospitality
+                  Shape the Future of Tourism and Hospitality with Us
                 </CardTitle>
                 <CardDescription className="text-lg mt-2">
                   Explore key aspects of our conference
@@ -117,7 +121,7 @@ export default function CTASection() {
                   <motion.div key={item.title} variants={itemVariants}>
                     <Card className="h-full bg-white/50 hover:bg-white/80 transition-colors duration-300 border border-primary/10 hover:border-primary/30">
                       <CardContent className="flex items-start p-4">
-                        <item.icon className="h-10 w-10 text-primary mr-4 mt-1" />
+                        <item.icon className="h-16 w-16 text-primary mr-4 mt-1" />
                         <div>
                           <h3 className="font-semibold text-lg mb-2">
                             {item.title}

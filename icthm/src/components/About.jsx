@@ -61,14 +61,14 @@ export default function AboutSection() {
             className="flex flex-col justify-center space-y-4"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-4xl underline underline-offset-2 decoration-orange-500">
-              About Our Conference
+              About The Conference
             </h2>
             <p className="text-muted-foreground">
-              Join us for an inspiring gathering of industry leaders,
-              innovators, and visionaries. Our conference offers unparalleled
-              networking opportunities, cutting-edge insights, and
-              transformative ideas that will shape the future of technology and
-              business.
+              The International Conference on Tourism Management and Hospitality
+              (ICTMH) unites global leaders, researchers, and innovators to
+              reimagine the future of tourism and hospitality, fostering
+              sustainable growth, resilience, and transformative ideas for a
+              dynamic, post-pandemic world.
             </p>
             <motion.div variants={itemVariants}>
               <Button

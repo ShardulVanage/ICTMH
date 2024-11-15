@@ -11,7 +11,7 @@ const faqs = [
     question:
       "What is the International Conference on Tourism Management and Hospitality about?",
     answer:
-      "This premier event brings together industry professionals, researchers, and academics to explore cutting-edge trends, tackle challenges, and showcase innovations in tourism and hospitality management.",
+      "The conference brings together global leaders, innovators, and professionals to explore the latest trends and challenges in tourism management and hospitality, with a special focus on sustainability and digital transformation.",
   },
   {
     question: "When and where will the conference be held?",

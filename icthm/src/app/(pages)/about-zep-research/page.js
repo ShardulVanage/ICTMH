@@ -68,8 +68,12 @@ export default function AboutCompany() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground px-12">
-                Our conference aims to foster innovation, share best practices, and explore the latest trends in tourism and hospitality management.
+               Zep Research is a global leader in advancing academic excellence and fostering innovation. Specializing in organizing impactful conferences, research initiatives, and collaboration opportunities, Zep Research creates dynamic environments where researchers, academics, and industry professionals come together to share knowledge, exchange ideas, and collaborate on groundbreaking work across various industries.
               </p>
+                <p className="text-muted-foreground px-12">
+                  With a commitment to providing a platform for high-quality research dissemination, Zep Research enables individuals and institutions to engage in meaningful discussions about emerging trends, challenges, and solutions. The focus spans diverse fields such as tourism, hospitality, education, sustainability, and technology. By connecting experts, thought leaders, and innovators, Zep Research drives progress and fosters advancements that leave a lasting impact on both academia and industry.
+
+                </p>
             </CardContent>
           </Card>
         </motion.div>
@@ -82,7 +86,12 @@ export default function AboutCompany() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Our mission is to advance the field of tourism and hospitality management by providing a platform for knowledge exchange, networking, and collaboration. We strive to address current challenges, explore emerging opportunities, and shape the future of the industry through insightful discussions and presentations.
+        Zep Research, in partnership with the International Conference on Tourism Management and Hospitality,
+        is committed to driving innovation and fostering collaboration within the tourism and hospitality industries.
+          The mission is to create a platform for global knowledge exchange, promote sustainable practices, 
+          and highlight emerging trends and solutions. By connecting industry leaders, researchers, and professionals,
+          the goal is to inspire progress, share valuable insights, and contribute to the growth and sustainability of tourism and hospitality.
+            Through impactful conferences and research initiatives, this mission aims to shape a more innovative and resilient future for the global tourism industry.
                 </p>
               </CardContent>
             </Card>
