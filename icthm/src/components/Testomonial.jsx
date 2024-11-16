@@ -42,7 +42,7 @@ export default function Testimonial() {
               <div className="absolute -right-4 -top-4 h-16 w-16 rotate-12 animate-pulse bg-orange-500" />
               <blockquote className="relative space-y-4">
                 <div className="text-lg font-medium leading-relaxed text-gray-700">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </div>
                 <footer className="flex items-center gap-4">
                   <Image
