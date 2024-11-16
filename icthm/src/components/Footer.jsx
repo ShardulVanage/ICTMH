@@ -86,6 +86,14 @@ export default function Footer() {
                     Sponsorship
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/about-speakers"
+                    className="hover:text-orange-500 transition-colors"
+                  >
+                    Speakers
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="space-y-4">

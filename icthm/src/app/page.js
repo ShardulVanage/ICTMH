@@ -6,6 +6,10 @@ import FAQSection from "@/components/FAq";
 import Hero from "@/components/Hero";
 import ConferenceHighlightSection from "@/components/Hightlight";
 import ConferenceObjectives from "@/components/Objective";
+import SpeakerSection from "@/components/Speakers";
+import Testimonial from "@/components/Testomonial";
+import TicketCTA from "@/components/TicketCTA";
+import VenueWithFAQ from "@/components/VenueWithFAQ";
 
 export default function Home() {
   return (
@@ -14,10 +18,13 @@ export default function Home() {
    <CoOrganizationLogos/>
    <AboutSection/>
    <ConferenceObjectives/>
-   <ConferenceHighlightSection/>
+   <SpeakerSection/>
+   {/* <ConferenceHighlightSection/> */}
    <CTASection/>
    <Dates/>
-   <FAQSection/>
+   <TicketCTA/>
+   <Testimonial/>
+   <VenueWithFAQ/>
    </>
   );
 }

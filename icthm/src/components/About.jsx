@@ -3,7 +3,15 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 import { Button } from "@/components/ui/button";
+
+const stats = [
+  { id: 1, name: "Attendees", value: 8000, suffix: "+" },
+  { id: 2, name: "Speakers", value: 35, suffix: "+" },
+  { id: 3, name: "Uptime guarantee", value: 99.9, suffix: "%" },
+  { id: 4, name: "Traffic Sources", value: 70, prefix: "", suffix: "+" },
+];
 
 export default function AboutSection() {
   const [ref, inView] = useInView({
@@ -60,7 +68,7 @@ export default function AboutSection() {
             variants={itemVariants}
             className="flex flex-col justify-center space-y-4"
           >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-4xl underline underline-offset-2 decoration-orange-500">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-4xl underline underline-offset-4 decoration-orange-500">
               About The Conference
             </h2>
             <p className="text-muted-foreground">
@@ -78,6 +86,34 @@ export default function AboutSection() {
                 <a href="/about-conference">Read More</a>
               </Button>
             </motion.div>
+            <h1 className="text-lg tracking-tighter font-semibold underline underline-offset-4 decoration-orange-500">
+              Some Heading
+            </h1>
+            <dl className="grid max-w-xl grid-cols-2 gap-8 sm:grid-cols-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.id}
+                  className="flex flex-col gap-y-3 border-gray-900/10 pl-2"
+                >
+                  <dt className="text-sm leading-3 text-orange-500 drop-shadow-sm font-bold tracking-wider">
+                    {stat.name}
+                  </dt>
+                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                    {inView && (
+                      <>
+                        {stat.prefix}
+                        <CountUp
+                          end={stat.value}
+                          duration={2.5}
+                          decimals={stat.value % 1 !== 0 ? 1 : 0}
+                        />
+                        {stat.suffix}
+                      </>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </motion.div>
         </motion.div>
       </div>
